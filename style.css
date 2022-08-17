@@ -1,5 +1,6 @@
 * {
-    font-family: mononoki, monospace;
+    font-family: 'Apple Garamond', serif;
+    font-size: 24px;
 }
 
 body {
@@ -7,18 +8,15 @@ body {
 }
 
 .container {
-    border: 2.5px solid red;
     margin: 5vw;
 }
 
 .heading {
-    /* border: 2.5px solid blue; */
     display: flex;
     justify-content: center;
 }
 
 .prompt {
-    /* border: 2.5px solid limegreen; */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -33,12 +31,24 @@ body {
     margin: 0 12px;
 }
 
-.results {
-    border: 2.5px solid green;
+#rock {
+    font-size: 24px;
+    background-color: #F675A8;
+}
 
+#paper {
+    font-size: 24px;
+    background-color: #F29393;
+}
+
+#scissors {
+    font-size: 24px;
+    background-color: #FFCCB3;
+}
+
+.results {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     gap: 20px;
 
@@ -50,9 +60,32 @@ body {
 }
 
 .results .points {
-    border: 2.5px solid pink;
+    text-align: end;
 }
 
 .results .history {
-    border: 2.5px solid purple;
+    font-size: smaller;
+    text-align: justify;
+}
+
+.results .history .fluff {
+    color: rgba(0, 0, 0, 0.45);
+}
+
+.winner {
+    display: flex;
+    justify-content: center;
+
+    margin: 5vw;
+}
+
+.reset {
+    display: flex;
+    justify-content: center;
+}
+
+.reset button {
+    font-size: 20px;
+    background-color: #554994;
+    color: white;
 }
