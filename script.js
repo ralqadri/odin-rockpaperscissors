@@ -13,13 +13,16 @@ let rounds = -1;
 // Gets computer's choice that will randomly return either 'Rock', 'Paper', or 'Scissors'. 
 // Uses the Math.random() function to pick 0, 1, and 2 and will choose the psuedo-random choice from the `moves` array.
 function getComputerChoice() {
-    return moves[Math.floor(Math.random() * 3)];
+    const min = 0 // First element's index (rock)
+    const max = 2 // Last element's index (paper)
+    return moves[Math.floor(Math.random() * (max - min + 1)) + min];
 }
 
 // Plays a single round of Rock Paper Scissors.
 // Grabs player's (`playerSelection`) and computer's (`computerSelection`) moves and compares the values to declare who is the winner of the round.
-function playRound(playerSelection, computerSelection) {
-    playerSelection = playerSelection.toLowerCase(); // making player input case-insensitive by making them into an all lowercase string
+function playRound() {
+    let playerSelection = this.id;
+    let computerSelection = getComputerChoice();
 
     if (playerSelection === computerSelection) {
         roundWinner = 'tie';
@@ -62,11 +65,8 @@ function game(rounds) {
     }
 }
 
-// game(rounds);
-const rock = document.getElementById("rock-button");
-const paper = document.getElementById("paper-button");
-const scissors = document.getElementById("scissors-button");
 
-rock.addEventListener("click", () => console.log("rock pressed"));
-paper.addEventListener("click", () => console.log("paper pressed"));
-scissors.addEventListener("click", () => console.log("scissors pressed"));
+// Give every button its own event listener
+document.querySelectorAll('.buttons button').forEach((button) => {
+    button.addEventListener("click", playRound);
+})
