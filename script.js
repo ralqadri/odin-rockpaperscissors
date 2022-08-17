@@ -8,7 +8,9 @@ let roundWinner = '';
 let playerMove = '';
 let computerMove = '';
 
-let rounds = -1;
+let resultText = '';
+
+let rounds = 1;
 
 // Gets computer's choice that will randomly return either 'Rock', 'Paper', or 'Scissors'. 
 // Uses the Math.random() function to pick 0, 1, and 2 and will choose the psuedo-random choice from the `moves` array.
@@ -21,6 +23,8 @@ function getComputerChoice() {
 // Plays a single round of Rock Paper Scissors.
 // Grabs player's (`playerSelection`) and computer's (`computerSelection`) moves and compares the values to declare who is the winner of the round.
 function playRound() {
+    if (rounds > 5) return;
+
     let playerSelection = this.id;
     let computerSelection = getComputerChoice();
 
@@ -44,13 +48,20 @@ function playRound() {
     playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1);
     computerSelection = computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)
 
+    console.log(roundWinner, playerSelection, computerSelection);
+
     if (roundWinner === 'tie') {
-        return `It's a tie! ${playerSelection} (Player) and ${computerSelection} (Computer)`
+        resultText = `It's a tie! ${playerSelection} (Player) and ${computerSelection} (Computer)`;
     } else if (roundWinner === 'player') {
-        return `Player wins! ${playerSelection} (Player) beats ${computerSelection} (Computer)`
+        resultText = `Player wins! ${playerSelection} (Player) beats ${computerSelection} (Computer)`;
     } else {
-        return `Computer wins! ${computerSelection} (Computer) beats ${playerSelection} (Player)`
+        resultText = `Computer wins! ${computerSelection} (Computer) beats ${playerSelection} (Player)`;
     }
+
+    const result = document.querySelector('.results .history');
+    result.innerHTML += resultText + '<br>';
+
+    rounds++;
 }
 
 function game(rounds) {
