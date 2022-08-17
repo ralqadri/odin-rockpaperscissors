@@ -24,7 +24,7 @@ function playRound(playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
         roundWinner = 'tie';
     } else {
-        if (    // player winning situation
+        if ( // player winning situation
             (playerSelection === 'rock' && computerSelection === 'scissors') ||
             (playerSelection === 'paper' && computerSelection === 'rock') ||
             (playerSelection === 'scissors' && computerSelection === 'paper')
@@ -62,10 +62,4 @@ function game(rounds) {
     }
 }
 
-console.log("Welcome to Rock Paper Scissors! How many rounds do you want to play?")
-rounds = prompt('Type in how many rounds of Rock Paper Scissors do you want to play...')
-// while (rounds == ALLOW_ONLY_NUMBERS) {
-//     rounds = prompt("That's not a number, silly! How many rounds do you want to play?");
-//     console.log(typeof rounds);
-// } 
 game(rounds);
