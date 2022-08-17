@@ -62,4 +62,11 @@ function game(rounds) {
     }
 }
 
-game(rounds);
+// game(rounds);
+const rock = document.getElementById("rock-button");
+const paper = document.getElementById("paper-button");
+const scissors = document.getElementById("scissors-button");
+
+rock.addEventListener("click", () => console.log("rock pressed"));
+paper.addEventListener("click", () => console.log("paper pressed"));
+scissors.addEventListener("click", () => console.log("scissors pressed"));
